@@ -16,7 +16,7 @@ public class ContactCtrls {
 	
 	@GetMapping("/check")
 	public String checkMSStatus() {
-		return "hello I am "+ webServerApplicationContext.getApplicationName()
+		return "hello I am "+ webServerApplicationContext.getId()
 		+ ", running on Port : "+webServerApplicationContext.getWebServer().getPort();
 	}
 
