@@ -17,12 +17,12 @@ public class PaymentService {
 	
 	private PaymentRepos paymentRepos;
 	
-	public TransactionResPayment getPayment(TransactionReqOrder txOrder) {
+	public TransactionResPayment doPayment(TransactionReqOrder txOrder) {
 		PaymentEntity payment = new PaymentEntity();
 		payment.setOrderId(txOrder.getOrderId());
 		payment.setAmount(txOrder.getAmount());
 		payment.setPaymentStatus(paymentProcessing());
-		if(payment.getPaymentStatus().equals("success"));
+		if(payment.getPaymentStatus().equals("success"))
 		payment.setTransactionId(UUID.randomUUID().toString());
 		paymentRepos.save(payment);
 		return new TransactionResPayment( payment.getTransactionId(), payment.getPaymentStatus());

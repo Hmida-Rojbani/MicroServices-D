@@ -1,6 +1,8 @@
 package de.tekup.order.ctrls;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,9 +17,14 @@ public class OrderCtrl {
 	
 	private OrderService  orderService;
 	
-	@PostMapping("/book/order")
-	public OrderEntity bookOrder(OrderEntity order) {
+	@PostMapping("/book")
+	public OrderEntity bookOrder(@RequestBody OrderEntity order) {
 		return orderService.saveOrder(order);
+	}
+	
+	@GetMapping("/works")
+	public String works() {
+		return "Order Works";
 	}
 
 }
